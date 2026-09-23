@@ -1,3 +1,5 @@
+import unittest
+
 def area(a,h):
 
     """
@@ -32,3 +34,22 @@ def perimeter(a,b,c):
         return "Triangle doesn't exists"
     
     return sum(sides)
+
+class TriangleTestCase(unittest.TestCase):
+    
+    def test_triangle_exists_negative(self):
+        res = perimeter(-10,-1,100)
+        self.assertEqual(res, "Trinagle doesn't exists")
+        
+    def test_triangle_exists_impossibility(self):
+        res = perimeter(100, 1000, 10000)
+        self.assertEqual(res, "Triangle doesn't exists")
+        
+    def test_triangle_area(self):
+        res = area(10, 5)
+        self.assertEqual(res, 25)
+        
+    def test_triangle_perimeter(self):
+        res = perimeter(6, 8, 10)
+        self.assertEqual(res, 24)
+    

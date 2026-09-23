@@ -1,3 +1,4 @@
+import unittest
 import math
 
 
@@ -28,3 +29,18 @@ def perimeter(r):
     """
     
     return 2 * math.pi * r
+
+
+class CircleTestCase(unittest.TestCase):
+    
+    def test_circle_exists(self):
+        res =  perimeter(-10)
+        self.assertEqual(res, "Circle doesn't exists")
+        
+    def test_circle_area(self):
+        res = area(10)
+        self.assertEqual(res, 10*10*math.pi)
+    
+    def test_circle_perimeter(self):
+        res = perimeter(7)
+        self.assertEqual(res, 14*math.pi)
