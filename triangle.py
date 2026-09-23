@@ -30,7 +30,7 @@ def perimeter(a,b,c):
     """
 
     sides = sorted([a,b,c])
-    if c >= a+b:
+    if sides[2] >= sides[0]+sides[1]:
         return "Triangle doesn't exists"
     
     return sum(sides)
@@ -38,8 +38,8 @@ def perimeter(a,b,c):
 class TriangleTestCase(unittest.TestCase):
     
     def test_triangle_exists_negative(self):
-        res = perimeter(-10,-1,100)
-        self.assertEqual(res, "Trinagle doesn't exists")
+        res = perimeter(102,-1,100)
+        self.assertEqual(res, "Triangle doesn't exists")
         
     def test_triangle_exists_impossibility(self):
         res = perimeter(100, 1000, 10000)
